@@ -1,19 +1,25 @@
 package presentacio;
 
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 import aplicacio.*;
 
 
@@ -27,8 +33,13 @@ public class presentacio {
 		while (continua){
 			
 			// El Taulell es crearà una sola vegada per partida. Creem-lo:
+<<<<<<< HEAD
 			estat taulellDeJoc = new estat(); 
 		
+=======
+			estat taulellDeJoc = new estat();
+			
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 			// Cridem al text inicial. No l'incloem directament aquí per no saturar el main de text:
 			System.out.println(textInicial());
 			
@@ -73,6 +84,10 @@ public class presentacio {
 				} else System.out.println("Fi joc. Força bé.");
 			} else System.out.println("Fi joc.");
 			
+<<<<<<< HEAD
+=======
+			
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 			// Pregunta a l'usuari si desitja jugar una altra partida:
 			System.out.println("Vols jugar una altra partida? (s/n)");
 			BufferedReader final_br = new BufferedReader(new InputStreamReader(System.in));

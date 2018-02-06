@@ -1,5 +1,6 @@
 package domini;
 
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -12,10 +13,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
@@ -47,16 +51,26 @@ public class joc extends JFrame{
 	private static casella casellaSeleccionada = null;
 	private static boolean usuariVolSoroll = true; //per saber si l'usuari vol interacció acústica,inicialment estara activat
 	
+=======
+public class joc {
+	private  List<casella> taulell;
+	private int casellesEliminades,casellesRestants; // Atributs per portar la comptabilitat de les fitxes
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 	
 	public joc(){
 		casellesEliminades = 0;
 		casellesRestants = 29; // La casella central esta buida per tant es una fitxa menys
 		taulell = new ArrayList<casella>();
+<<<<<<< HEAD
 		missatgeFinal = null; //fins que no acaba la partida no es mostra el missatge
 	}
 	
 	
 	
+=======
+	}
+	
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 	public int getCasellesEliminades(){
 		return casellesEliminades;
 	}
@@ -65,19 +79,27 @@ public class joc extends JFrame{
 		return casellesRestants;
 	}
 	
+<<<<<<< HEAD
 	/**s'executa abans d'acabar per saber quin missatge mostrar a l'usuari*/
 	public void setMissatgeFrame(){
 		
 	}
 	
 	public void creaTaulell(){ //aquest metode tambe afegeix al FRAME les figures
+=======
+	public void creaTaulell(){
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 		int comptador = 0; //variable per poder numerar la fitxa
 		for(int f = 0; f < 7; f++){
 			for(int c = 0; c < 7; c++){
 				if(comptador == 16){  //la casella central esta buida 
+<<<<<<< HEAD
 					casella crea = new casella(17,false,f,c);
 					taulell.add(crea);
 					
+=======
+					taulell.add(new casella(17,false,f,c));
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 					comptador = 17;
 					
 				}
@@ -89,7 +111,11 @@ public class joc extends JFrame{
 			}
 		
 		}
+<<<<<<< HEAD
 				
+=======
+		
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 		//la casella central esta buida
 	} 
 	
@@ -147,6 +173,7 @@ public class joc extends JFrame{
 		return null;
 	}
 	
+<<<<<<< HEAD
 	
 	/*El metode s'encarrega de comprovar que les dades de l'usuari sin correctes
 	aquest metode realitza els moviments de fitxes o llen�a una excepcio si no ho pot fer
@@ -155,6 +182,12 @@ public class joc extends JFrame{
 	/**AQUEST METODE S'HA MODIFICAT PER PODER FER EL SENKU DE FORMA GRAFICA*/
 	
 	public casella comprovaCaselles(int casellaSeleccionada, int casellaDesti) throws IllegalArgumentException {
+=======
+	/*El metode s'encarrega de comprovar que les dades de l'usuari siguin correctes
+	aquest metode realitza els moviments de fitxes o llen�a una excepcio si no ho pot fer
+	*/
+	public void comprovaCaselles(int casellaSeleccionada, int casellaDesti) throws IllegalArgumentException {
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 		if (casellaSeleccionada == casellaDesti) {
 			throw new IllegalArgumentException("Atenció, la casella d'inici i la de destí no poden ser les mateixes.");
 		}
@@ -165,7 +198,11 @@ public class joc extends JFrame{
 			throw new IllegalArgumentException("Atenció, has seleccionat la casella de destí incorrectament.");
 		}
 
+<<<<<<< HEAD
 		// Comprovem que la casella a la que es vol saltar esti buida i la seleccionada que no ho esti
+=======
+		// Comprovem que la casella a la que es vol saltar estigui buida i la seleccionada que no ho estigui
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 		if(taulell.get(casellaSeleccionada - 1).Ocupada() == false){
 			throw new IllegalArgumentException("Atenció, no has seleccionat cap fitxa. ");
 		}
@@ -180,17 +217,31 @@ public class joc extends JFrame{
 		cSeleccionada = taulell.get(casellaSeleccionada -1).getPos();
 		cDesti = taulell.get(casellaDesti - 1).getPos();
 		
+<<<<<<< HEAD
 		//el metode retorna la casella que s'ha eliminat
 		return eliminaFitxaEntremig(cSeleccionada, cDesti);
 		
 	} 
+=======
+		eliminaFitxaEntremig(cSeleccionada, cDesti);
+		
+		//si el metode anterior no dispara excepcions vol dir que s'ha eliminat una fitxa i hem d'actualitar el marcador
+		casellesEliminades++;
+		casellesRestants--;
+		
+	 } 
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 	
 	//aquest metode s'encarrega de comprovar que les fitxes seleccionades estan ben seleccionades
 	//i tambe realitza el moviment de fitxes i les elimines
 	
+<<<<<<< HEAD
 	private casella eliminaFitxaEntremig(posicio seleccionada, posicio desti) {
 		casella eliminada = null;
 		
+=======
+	private void eliminaFitxaEntremig(posicio seleccionada, posicio desti) {
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 		if (seleccionada.getFila() == desti.getFila()) {
 			// es troben a la mateixa fila
 			int pos = seleccionada.getColumna() - desti.getColumna();
@@ -203,8 +254,11 @@ public class joc extends JFrame{
 			if (pos < 0) { //esta a la part esquerra de la casella seleccionada
 				if(this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna() +1).Ocupada()){
 					this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna() + 1).setOcupada(false); //eliminem la fitxa que hi ha entremig
+<<<<<<< HEAD
 					eliminada = getNumCasella(seleccionada.getFila(), seleccionada.getColumna() + 1);
 					
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 					this.getNumCasella(desti.getFila(), desti.getColumna()).setOcupada(true); //coloquem la nova fitxa a la posicio de desti
 					this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna()).setOcupada(false);//eliminem la fitxa de la posicio inicial
 				}else{
@@ -213,8 +267,11 @@ public class joc extends JFrame{
 				}
 			}else if (this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna() -1).Ocupada()){
 					this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna() -1 ).setOcupada(false);
+<<<<<<< HEAD
 					eliminada = getNumCasella(seleccionada.getFila(), seleccionada.getColumna() - 1);
 					
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 					this.getNumCasella(desti.getFila(), desti.getColumna()).setOcupada(true);
 					this.getNumCasella(seleccionada.getFila(),seleccionada.getColumna()).setOcupada(false);
 			}else{
@@ -231,8 +288,11 @@ public class joc extends JFrame{
 				if (pos < 0) {
 					if(this.getNumCasella(seleccionada.getFila() + 1, seleccionada.getColumna()).Ocupada()){
 						this.getNumCasella(seleccionada.getFila() + 1, seleccionada.getColumna()).setOcupada(false);
+<<<<<<< HEAD
 						eliminada = getNumCasella(seleccionada.getFila() + 1, seleccionada.getColumna());
 						
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 						this.getNumCasella(desti.getFila(), desti.getColumna()).setOcupada(true);
 						this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna()).setOcupada(false);
 					}else{
@@ -241,8 +301,11 @@ public class joc extends JFrame{
 
 				} else if(this.getNumCasella(seleccionada.getFila() - 1, seleccionada.getColumna()).Ocupada()){
 					this.getNumCasella(seleccionada.getFila() - 1, seleccionada.getColumna()).setOcupada(false);
+<<<<<<< HEAD
 					eliminada = getNumCasella(seleccionada.getFila()-1, seleccionada.getColumna());
 					
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 					this.getNumCasella(desti.getFila(), desti.getColumna()).setOcupada(true);
 					this.getNumCasella(seleccionada.getFila(), seleccionada.getColumna()).setOcupada(false);
 				}else{
@@ -253,6 +316,7 @@ public class joc extends JFrame{
 		else{
 				throw new IllegalArgumentException("Atenció, la fitxa seleccionada no es troba dins dels movmients posibles");
 		 }
+<<<<<<< HEAD
 		
 		//vol dir que s'ha eliminat una casella i per tant actualitzem els marcadors
 		if(eliminada != null){
@@ -260,6 +324,8 @@ public class joc extends JFrame{
 			casellesRestants--;
 		}
 		return eliminada;
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 	}
 			
 	
@@ -298,6 +364,7 @@ public class joc extends JFrame{
 		}
 		return ret;
 	}
+<<<<<<< HEAD
 	
 	
 	//A PARTIR D'AQUI TROBEM EL FRAME
@@ -477,4 +544,6 @@ public class joc extends JFrame{
 		setVisible(true);
 		
 	}
+=======
+>>>>>>> c93fadc98cd0079a9a3b7d4db6cda8ca6b20a64e
 }
